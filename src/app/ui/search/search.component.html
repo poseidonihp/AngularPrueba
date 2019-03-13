@@ -1,0 +1,39 @@
+
+
+        <div class="container">
+                <mat-toolbar>Consulta</mat-toolbar>
+                <mat-card >
+                                <mat-card-content>
+        
+                                        <div class="row mt-4">
+                                                <div class="col-md-4 col-12">
+                                                        <mat-form-field class="full-width">
+                                                                <input matInput placeholder="Usuario" type="text" value="Usuario"  [(ngModel)]="Usuario" >
+                                                              </mat-form-field>                      
+                                                </div>
+                                                <div class="col-md-4 col-12 pb-4">
+                                                        <button class="btn btn-success btn-lg" type="submit" (click)="Consultar()" >Consultar</button>
+                                                </div>
+                                        </div>
+                                        <div class="row pb-4"> 
+                                            <div class="table-responsive">
+                                    
+                                                <p-dataTable [hidden]="ver"   [value]="datos"  [sortField]="multiple" [sortOrder]="sortOrder" #dt [rows]="5" [paginator]="true" >
+                                                        <ng-template pTemplate="caption">
+                                                                <div style="text-align: right">        
+                                                                    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                                                                    <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+                                                                </div>
+                                                            </ng-template>
+                                                    <p-column field="name" header="Nombre" [sortable]="true" [filter]="true" [style]="{'width':'300px'}"></p-column>
+                                                    <p-column field="description" header="Descripción" [filter]="true" [sortable]="true" [style]="{'width':'300px'}"></p-column>
+                                                    <p-column field="language" header="Lenguaje" [filter]="true" [sortable]="true" [style]="{'width':'300px'}"></p-column>
+                                                    <p-column field="default_branch" header="Branch Default" [filter]="true" [sortable]="true" [style]="{'width':'300px'}"></p-column>
+                                                    <p-column field="git_url" header="url Git" [sortable]="true"  [filter]="true" [style]="{'width':'350px'}"></p-column>
+                                                      </p-dataTable>
+                                            </div>
+                                        </div>
+                                </mat-card-content>
+        
+                </mat-card>
+        </div>
